@@ -1,0 +1,24 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Environment
+metadata:
+  name: development
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Development
+    openchoreo.dev/description: Development environment for hello-world-demo validation.
+  labels:
+    openchoreo.dev/name: development
+spec:
+  dataPlaneRef:
+    kind: ClusterDataPlane
+    name: default
+  isProduction: false
+  gateway:
+    ingress:
+      external:
+        name: gateway-default
+        namespace: openchoreo-data-plane
+        http:
+          listenerName: http
+          port: 80
+          host: openchoreoapis.internal

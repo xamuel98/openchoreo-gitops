@@ -1,0 +1,13 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ResourceReleaseBinding
+metadata:
+  name: event-broker-development
+  namespace: default
+spec:
+  owner:
+    projectName: hello-world-demo
+    resourceName: event-broker
+  environment: development
+  retainPolicy: Delete
+  # resourceRelease is pinned by an approved Git commit after the Resource
+  # controller creates status.latestRelease.name.

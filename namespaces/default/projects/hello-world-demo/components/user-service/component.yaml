@@ -1,0 +1,31 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: User Service
+    openchoreo.dev/description: User persistence service backed by users-db.
+spec:
+  owner:
+    projectName: hello-world-demo
+  componentType:
+    kind: ComponentType
+    name: deployment/service
+  autoBuild: false
+  autoDeploy: false
+  workflow:
+    kind: Workflow
+    name: docker-gitops-release
+    parameters:
+      componentName: user-service
+      projectName: hello-world-demo
+      repository:
+        url: https://github.com/xamuel98/hello-openchoreo-demo.git
+        revision:
+          branch: main
+        appPath: /services/user-service
+      docker:
+        context: /services/user-service
+        filePath: /services/user-service/Dockerfile
+      workloadDescriptorPath: workload.yaml

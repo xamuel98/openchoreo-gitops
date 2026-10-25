@@ -1,0 +1,6 @@
+* @xamuel98
+/platform-shared/ @xamuel98
+/namespaces/default/platform/ @xamuel98
+/namespaces/default/projects/hello-world-demo/project-release-bindings/ @xamuel98
+/namespaces/default/projects/hello-world-demo/resource-release-bindings/ @xamuel98
+/namespaces/default/projects/hello-world-demo/components/*/release-bindings/ @xamuel98

@@ -1,0 +1,31 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: notification-service
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Notification Service
+    openchoreo.dev/description: NATS consumer for orders.created notifications.
+spec:
+  owner:
+    projectName: hello-world-demo
+  componentType:
+    kind: ComponentType
+    name: deployment/service
+  autoBuild: false
+  autoDeploy: false
+  workflow:
+    kind: Workflow
+    name: docker-gitops-release
+    parameters:
+      componentName: notification-service
+      projectName: hello-world-demo
+      repository:
+        url: https://github.com/xamuel98/hello-openchoreo-demo.git
+        revision:
+          branch: main
+        appPath: /services/notification-service
+      docker:
+        context: /services/notification-service
+        filePath: /services/notification-service/Dockerfile
+      workloadDescriptorPath: workload.yaml

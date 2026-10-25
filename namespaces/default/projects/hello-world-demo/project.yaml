@@ -1,0 +1,16 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Project
+metadata:
+  name: hello-world-demo
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Hello World Demo
+    openchoreo.dev/description: Multi-service Node.js demo managed declaratively through GitOps.
+  labels:
+    openchoreo.dev/name: hello-world-demo
+spec:
+  deploymentPipelineRef:
+    name: default
+  type:
+    kind: ProjectType
+    name: default

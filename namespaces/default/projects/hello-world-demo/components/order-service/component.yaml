@@ -1,0 +1,31 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: order-service
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Order Service
+    openchoreo.dev/description: Order service backed by orders-db and event-broker.
+spec:
+  owner:
+    projectName: hello-world-demo
+  componentType:
+    kind: ComponentType
+    name: deployment/service
+  autoBuild: false
+  autoDeploy: false
+  workflow:
+    kind: Workflow
+    name: docker-gitops-release
+    parameters:
+      componentName: order-service
+      projectName: hello-world-demo
+      repository:
+        url: https://github.com/xamuel98/hello-openchoreo-demo.git
+        revision:
+          branch: main
+        appPath: /services/order-service
+      docker:
+        context: /services/order-service
+        filePath: /services/order-service/Dockerfile
+      workloadDescriptorPath: workload.yaml

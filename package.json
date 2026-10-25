@@ -1,0 +1,11 @@
+{
+  "name": "openchoreo-gitops",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/validate.js"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.1"
+  }
+}

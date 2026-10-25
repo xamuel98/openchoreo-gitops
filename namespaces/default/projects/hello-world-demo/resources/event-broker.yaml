@@ -1,0 +1,14 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Resource
+metadata:
+  name: event-broker
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Event Broker
+    openchoreo.dev/description: NATS broker for orders.created events.
+spec:
+  owner:
+    projectName: hello-world-demo
+  type:
+    kind: ClusterResourceType
+    name: nats

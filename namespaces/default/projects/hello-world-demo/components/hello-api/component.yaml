@@ -1,0 +1,31 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: Component
+metadata:
+  name: hello-api
+  namespace: default
+  annotations:
+    openchoreo.dev/display-name: Hello API
+    openchoreo.dev/description: External API facade for the Hello World demo.
+spec:
+  owner:
+    projectName: hello-world-demo
+  componentType:
+    kind: ComponentType
+    name: deployment/service
+  autoBuild: false
+  autoDeploy: false
+  workflow:
+    kind: Workflow
+    name: docker-gitops-release
+    parameters:
+      componentName: hello-api
+      projectName: hello-world-demo
+      repository:
+        url: https://github.com/xamuel98/hello-openchoreo-demo.git
+        revision:
+          branch: main
+        appPath: /
+      docker:
+        context: /
+        filePath: /Dockerfile
+      workloadDescriptorPath: workload.yaml

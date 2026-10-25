@@ -1,0 +1,14 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ProjectReleaseBinding
+metadata:
+  name: hello-world-demo-development
+  namespace: default
+  labels:
+    openchoreo.dev/project: hello-world-demo
+    openchoreo.dev/environment: development
+spec:
+  owner:
+    projectName: hello-world-demo
+  environment: development
+  # The Project controller seeds this once with status.latestRelease.name.
+  # Commit the resulting pin after bootstrap to make rollback intent explicit.

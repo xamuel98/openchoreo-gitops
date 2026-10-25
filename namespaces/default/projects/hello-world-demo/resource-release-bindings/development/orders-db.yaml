@@ -1,0 +1,13 @@
+apiVersion: openchoreo.dev/v1alpha1
+kind: ResourceReleaseBinding
+metadata:
+  name: orders-db-development
+  namespace: default
+spec:
+  owner:
+    projectName: hello-world-demo
+    resourceName: orders-db
+  environment: development
+  retainPolicy: Retain
+  # resourceRelease is pinned by an approved Git commit after the Resource
+  # controller creates status.latestRelease.name.
