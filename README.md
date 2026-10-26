@@ -34,9 +34,9 @@ and must not be adopted until cluster inventory confirms their existing owner.
 3. Confirm Flux, `deployment/service`, the External Secrets CRDs, and the
    `default` ClusterDataPlane exist. Check ownership conflicts before allowing
    Flux to reconcile the repository-provided workflow and type definitions.
-4. Create a dedicated remote repository and replace
-   `__GITOPS_REPOSITORY_URL__` in both `flux/gitrepository.yaml` and
-   `namespaces/default/platform/workflows/docker-gitops-release.yaml`.
+4. Confirm the configured remote repository is
+   `https://github.com/xamuel98/openchoreo-gitops.git` in both the Flux source
+   and the `docker-gitops-release` workflow.
 5. Store the GitOps write token in the configured external secret store as
    `gitops-token`; never commit the token.
 6. Apply the files under `flux/` only after Flux installation is approved.

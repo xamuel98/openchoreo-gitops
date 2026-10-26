@@ -98,7 +98,7 @@ spec:
             value: ${parameters.docker.filePath}
           # PE-controlled hardcoded parameters
           - name: gitops-repo-url
-            value: __GITOPS_REPOSITORY_URL__
+            value: https://github.com/xamuel98/openchoreo-gitops.git
           - name: gitops-branch
             value: main
           # GitOps git secret (for private repos and PR creation)
